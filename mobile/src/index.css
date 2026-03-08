@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&family=Open+Sans:wght@400;600&family=Roboto+Mono:wght@400;600&display=swap");
+@import "mafs/core.css";
+@import "mafs/font.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #121212;
+  color: #d3d3d3;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Remove spinner arrows in Webkit browsers (Chrome, Safari, Edge) */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove spinner arrows in Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.scrollable-text {
+  overflow: auto; /* Add a scrollbar when content overflows */
+}

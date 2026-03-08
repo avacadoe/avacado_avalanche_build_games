@@ -1,0 +1,410 @@
+/* New UI Styles - Minimal Clean Design */
+
+/* Global font settings */
+* {
+  font-family: 'Scto Grotesk A', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 300; /* Thin/Light weight */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Override for specific elements that need different weights */
+b, strong {
+  font-weight: 500; /* Medium weight instead of bold */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400; /* Regular weight for headings */
+  letter-spacing: -0.02em;
+}
+
+/* Override Tailwind's font-bold to use lighter weight */
+.font-bold {
+  font-weight: 400 !important; /* Regular weight instead of 700 */
+}
+
+.font-semibold {
+  font-weight: 400 !important; /* Regular weight instead of 600 */
+}
+
+.font-medium {
+  font-weight: 350 !important; /* Light-medium weight instead of 500 */
+}
+
+/* Dotted background pattern */
+.dotted-bg {
+  background-color: #ECECEC;
+  background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+/* Frost card - white with subtle border */
+.frost-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+}
+
+/* Mono kicker - small uppercase label */
+.mono-kicker {
+  font-family: 'JetBrains Mono', Monaco, 'Courier New', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 400; /* Regular weight instead of 600 */
+}
+
+/* Corner badge with arrow icon */
+.corner-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+}
+
+.corner-badge svg {
+  width: 10px;
+  height: 10px;
+}
+
+/* Toast progress animation */
+@keyframes toast-progress {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+/* Pulse animation for loading states */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+.pulse-dot {
+  animation: pulse-dot 1.4s ease-in-out infinite;
+}
+
+.pulse-dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.pulse-dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Skeleton loader */
+@keyframes skeleton-shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.06) 25%,
+    rgba(0, 0, 0, 0.12) 50%,
+    rgba(0, 0, 0, 0.06) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+/* Hover effects for interactive cards */
+.interactive-card {
+  transition: all 0.2s ease;
+}
+
+.interactive-card:hover {
+  border-color: rgba(255, 107, 107, 0.4);
+  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.12);
+}
+
+/* Button styles matching reference */
+.btn-primary {
+  background: #FF6B6B;
+  border: 1px solid #FF6B6B;
+  color: white;
+  font-family: 'JetBrains Mono', Monaco, 'Courier New', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 400; /* Regular weight instead of 600 */
+  padding: 8px 16px;
+  border-radius: 2px;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.35);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: transparent;
+  color: #FF6B6B;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #3F3F3F;
+  font-family: 'JetBrains Mono', Monaco, 'Courier New', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 400; /* Regular weight instead of 600 */
+  padding: 8px 16px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  color: #FF6B6B;
+}
+
+.btn-success {
+  background: #00A667;
+  border: 1px solid #00A667;
+  color: white;
+  font-family: 'JetBrains Mono', Monaco, 'Courier New', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-weight: 400; /* Regular weight instead of 600 */
+  padding: 12px 24px;
+  border-radius: 10px;
+  box-shadow: 0 14px 36px rgba(0, 166, 103, 0.35);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-success:hover:not(:disabled) {
+  background: transparent;
+  color: #00A667;
+}
+
+.btn-success:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Input styles */
+.input-field {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #E2DDDA;
+  background: #FEFBFA;
+  padding: 8px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.input-field:focus {
+  border-color: #FF6B6B;
+  box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.3);
+}
+
+.input-field::placeholder {
+  color: #AAAAAA;
+}
+
+/* Large amount input */
+.amount-input-large {
+  font-size: 32px;
+  font-weight: 400; /* Regular weight instead of 600 */
+  border: none;
+  background: transparent;
+  outline: none;
+  width: 100%;
+}
+
+.amount-input-large::placeholder {
+  color: #CCCCCC;
+}
+
+/* Status indicators */
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.status-dot.pending {
+  background: #FF6B6B;
+}
+
+.status-dot.success {
+  background: #00A667;
+}
+
+.status-dot.error {
+  background: #FF3B3B;
+}
+
+/* Decorative lines */
+.decorative-line-horizontal {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  width: 100%;
+}
+
+.decorative-line-vertical {
+  width: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  height: 100%;
+}
+
+/* Privacy toggle */
+.privacy-blur {
+  filter: blur(6px);
+  user-select: none;
+  transition: filter 0.2s ease;
+}
+
+/* Token selector */
+.token-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.token-option {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.token-option.selected {
+  border-color: #FF6B6B;
+  background: white;
+  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.18);
+}
+
+/* Percentage buttons */
+.percentage-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.percentage-btn:hover {
+  border-color: #FF6B6B;
+  color: #FF6B6B;
+}
+
+/* Step progress indicator */
+.step-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 400; /* Regular weight instead of 600 */
+  transition: all 0.2s ease;
+}
+
+.step.active .step-circle {
+  border-color: #FF6B6B;
+  background: #FF6B6B;
+  color: white;
+}
+
+.step.completed .step-circle {
+  border-color: #00A667;
+  background: #00A667;
+  color: white;
+}
+
+.step-connector {
+  width: 40px;
+  height: 2px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.step.completed + .step .step-connector {
+  background: #00A667;
+}
+
+/* Countdown timer */
+.countdown-timer {
+  font-family: 'JetBrains Mono', Monaco, 'Courier New', monospace;
+  font-size: 48px;
+  font-weight: 400; /* Regular weight instead of 700 */
+  color: #FF6B6B;
+  text-align: center;
+}
+
+/* Color utilities */
+.text-coral-red {
+  color: #FF6B6B;
+}
+
+.text-emerald-green {
+  color: #00A667;
+}
+
+.text-warm-yellow {
+  color: #C4A600;
+}
+
+.bg-coral-red {
+  background-color: #FF6B6B;
+}
+
+.bg-emerald-green {
+  background-color: #00A667;
+}
+
+.bg-warm-yellow {
+  background-color: #C4A600;
+}
+
+.border-coral-red {
+  border-color: #FF6B6B;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .frost-card {
+    padding: 16px;
+  }
+  
+  .amount-input-large {
+    font-size: 24px;
+  }
+  
+  .countdown-timer {
+    font-size: 36px;
+  }
+}
